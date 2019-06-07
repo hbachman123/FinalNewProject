@@ -7,7 +7,7 @@ public class Snake {
     }
 
     public void draw(Graphics g2){
-        g2.drawRect(10, 10, 50, 50);
+        g2.fillRect(10, 10, 50, 50);
     }
 
     public void move(){
