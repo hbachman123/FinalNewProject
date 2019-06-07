@@ -6,13 +6,9 @@ public class background {
 
     }
 
-    public void draw(Graphics g2){
-        g2.fillRect(0, 0, 50, 50);
+    public static void DRAW(Graphics g2){
+        g2.setColor(new Color(149,209,199));
+        g2.fillRect(0, 0, 600, 600);
     }
-
-    public void move(){
-
-    }
-
 
 }

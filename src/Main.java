@@ -19,7 +19,11 @@ public class Main extends JPanel {
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D)g;
 
+        background.DRAW(g2);
+
         snake.draw(g2);
+
+
     }
 
     public static final int FRAMEWIDTH = 600, FRAMEHEIGHT = 600;

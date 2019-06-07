@@ -7,6 +7,7 @@ public class Snake {
     }
 
     public void draw(Graphics g2){
+        g2.setColor(Color.BLACK);
         g2.fillRect(10, 10, 50, 50);
     }
 
