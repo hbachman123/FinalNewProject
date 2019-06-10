@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class Main extends JPanel {
 
@@ -7,13 +9,45 @@ public class Main extends JPanel {
     Timer timer;
 
     public Main() {
-        snake = new Snake(700, 300);
+        snake = new Snake(300, 300);
         timer = new Timer(1000/60, e -> {
             snake.move();
-
+            repaint();
         });
         timer.start();
 
+        addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+
+                if(e.getKeyCode() == KeyEvent.VK_UP){
+                    snake.setDir(Snake.UP);
+                }
+
+                if(e.getKeyCode() == KeyEvent.VK_DOWN){
+                    snake.setDir(Snake.DOWN);
+                }
+
+                if(e.getKeyCode() == KeyEvent.VK_LEFT){
+                    snake.setDir(Snake.LEFT);
+                }
+
+                if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+                    snake.setDir(Snake.RIGHT);
+                }
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+
+            }
+        });
     }
 
     public void paintComponent(Graphics g){
@@ -22,6 +56,8 @@ public class Main extends JPanel {
         background.DRAW(g2);
 
         snake.draw(g2);
+
+        Hopps.
 
 
     }
