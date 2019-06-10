@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -54,8 +56,6 @@ public class Main extends JPanel {
         hoppsImages = new ArrayList<Sprite>();
         hoppsImages.add(new Hopps(10, 10, Sprite.WEST, 1));
 
-
-
     }
 
 
@@ -70,14 +70,20 @@ public class Main extends JPanel {
         for(Sprite spr : hoppsImages)
             spr.draw(g2);
 
-
         for (int i = 0; i < hoppsImages.size(); i++) {
+
             if(snake.intersects(hoppsImages.get(i))){
                 hoppsImages.remove(0);
-                System.out.println("hi");
+
             }
+
         }
+
+        repaint();
+
     }
+
+
 
     public static final int FRAMEWIDTH = 600, FRAMEHEIGHT = 600;
 

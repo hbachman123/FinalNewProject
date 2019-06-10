@@ -12,7 +12,7 @@ public class Sprite {
 
     public static final int NORTH = 90, SOUTH = 270, WEST = 180, EAST = 0, NE = 45, NW = 135, SW = 225, SE = 315;
     private static int nextID = 1; //static instance fields- there is ONE shared variable for all objects of this class.
-    private Point loc; //top left corner of this Sprite. Note loc.x and loc.y are the easy way to access the point.
+    public Point loc; //top left corner of this Sprite. Note loc.x and loc.y are the easy way to access the point.
     private int dir, picOrientation; //dir is the current direction in degrees.  See the constants below.
     private BufferedImage pic; //put the file in the res folder.
     private int speed; //Number of pixels moved each frame.

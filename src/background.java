@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class background {
+public class background{
 
     public background(int x, int y){
 

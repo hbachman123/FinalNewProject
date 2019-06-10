@@ -21,20 +21,25 @@ public class Snake extends Sprite{
 
     public void move() {
         if (dir == UP) {
-            y--;
+            y =loc.y--;
         }
 
         if (dir == DOWN) {
-            y++;
+            y = loc.y++;
         }
 
         if (dir == LEFT) {
-            x--;
+            x = loc.x--;
         }
 
         if (dir == RIGHT) {
-            x++;
+            x = loc.x++;
         }
+
+        if(loc.x < 0 || loc.x > 600){
+            setLoc(300, 300);
+        }
+
     }
 
     public void setDir(int newDir){
