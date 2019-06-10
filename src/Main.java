@@ -2,14 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Main extends JPanel {
 
     Snake snake;
     Timer timer;
+    private ArrayList<Sprite> hoppsImages;
 
     public Main() {
-        snake = new Snake(300, 300);
+        snake = new Snake(300, 300, Sprite.NORTH);
         timer = new Timer(1000/60, e -> {
             snake.move();
             repaint();
@@ -48,7 +50,15 @@ public class Main extends JPanel {
 
             }
         });
+
+        hoppsImages = new ArrayList<Sprite>();
+        hoppsImages.add(new Hopps(10, 10, Sprite.WEST, 1));
+
+
+
     }
+
+
 
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D)g;
@@ -57,9 +67,16 @@ public class Main extends JPanel {
 
         snake.draw(g2);
 
-        Hopps.
+        for(Sprite spr : hoppsImages)
+            spr.draw(g2);
 
 
+        for (int i = 0; i < hoppsImages.size(); i++) {
+            if(snake.intersects(hoppsImages.get(i))){
+                hoppsImages.remove(0);
+                System.out.println("hi");
+            }
+        }
     }
 
     public static final int FRAMEWIDTH = 600, FRAMEHEIGHT = 600;
