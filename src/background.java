@@ -1,8 +1,13 @@
 import java.awt.*;
 
 public class background{
+    int x;
+    int y;
 
     public background(int x, int y){
+        this.x = x;
+        this.y= y;
+
 
     }
 
