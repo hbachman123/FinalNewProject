@@ -14,6 +14,7 @@ public class Main extends JPanel {
     Timer timer;
     private ArrayList<Sprite> hoppsImages;
     private boolean Dead;
+    private int erin;
 
     public Main() {
          Dead = false;
