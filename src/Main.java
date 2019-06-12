@@ -1,3 +1,5 @@
+import sun.font.FontRunIterator;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -54,8 +56,9 @@ public class Main extends JPanel {
         });
 
         hoppsImages = new ArrayList<Sprite>();
-        hoppsImages.add(new Hopps(10, 10, Sprite.WEST, 1));
-
+        for (int i = 0; i < 10; i++) {
+            hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
+        }
     }
 
 

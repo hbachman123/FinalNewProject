@@ -49,8 +49,8 @@ public class Sprite {
      */
     public void draw(Graphics2D g2) {
         double rotationRequired = Math.toRadians(picOrientation - dir);
-        double halfWidth = pic.getWidth() / 2;
-        double halfHeight = pic.getHeight() / 2;
+        double halfWidth = pic.getWidth();
+        double halfHeight = pic.getHeight();
         g2.rotate(rotationRequired, loc.x + halfWidth, loc.y + halfHeight);
         g2.drawImage(pic, loc.x, loc.y, null);
         g2.rotate(-rotationRequired, loc.x + halfWidth, loc.y + halfHeight);
