@@ -41,7 +41,7 @@ public class Snake extends Sprite{
 //            setLoc(300, 300);
         }
 
-
+        
 
     }
 
