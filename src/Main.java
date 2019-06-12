@@ -56,10 +56,11 @@ public class Main extends JPanel {
         });
 
         hoppsImages = new ArrayList<Sprite>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
         }
     }
+
 
 
 
@@ -76,8 +77,8 @@ public class Main extends JPanel {
         for (int i = 0; i < hoppsImages.size(); i++) {
 
             if(snake.intersects(hoppsImages.get(i))){
-                hoppsImages.remove(0);
-
+                hoppsImages.remove(i);
+                hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
             }
 
         }
