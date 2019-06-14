@@ -17,39 +17,27 @@ public class Main extends JPanel {
     private int erin = -1;
 
     public Main() {
-         Dead = false;
+        Dead = false;
         snake = new Snake(300, 300, Sprite.NORTH);
         timer = new Timer(1000/60, e -> {
             snake.move();
 
             for (int i = 0; i < hoppsImages.size(); i++) {
                 if (snake.intersects(hoppsImages.get(i))) {
-                    hoppsImages.remove(0);
+                    hoppsImages.remove(i);
+                    snake.incLength();
                     hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
-
-
-                }
-                if (snake.intersects(hoppsImages.get(i))){
-
                 }
 
             }
-            if(snake.getLoc().y> 600 || snake.getLoc().y<0)
-                 Dead = true;
 
-            if(snake.getLoc().x> 600 || snake.getLoc().x<0)
-                Dead= true;
+            if(snake.getLoc().y> 600 || snake.getLoc().y<0) {
+                Dead = true;
+            }
 
-
-
-
-
-
-
-
-
-
-
+            if(snake.getLoc().x> 600 || snake.getLoc().x<0) {
+                Dead = true;
+            }
 
             repaint();
         });
@@ -89,38 +77,23 @@ public class Main extends JPanel {
         });
 
         hoppsImages = new ArrayList<Sprite>();
-        for (int i = 0; i < 1; i++) {
-            hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
-        }
+        hoppsImages.add(new Hopps((int)(Math.random()*FRAMEWIDTH), (int)(Math.random()*FRAMEHEIGHT), Sprite.WEST, 1));
     }
-
-
 
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D)g;
-
-        background.DRAW(g2);
-
-        snake.draw(g2);
         if(Dead) {
             g2.setColor(Color.black);
             g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
             g2.setColor(Color.white);
             g2.drawString("You Lose", 200, 300);
-        }
-
-        for(Sprite spr : hoppsImages)
-            spr.draw(g2);
-
-        for (int i = 0; i < hoppsImages.size(); i++) {
-
-            if(snake.intersects(hoppsImages.get(i))){
-                hoppsImages.remove(i);
-               hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
-            }
+        } else {
+            background.DRAW(g2);
+            snake.draw(g2);
+            for (Sprite spr : hoppsImages)
+                spr.draw(g2);
 
         }
-
         repaint();
 
     }
