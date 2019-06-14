@@ -12,9 +12,9 @@ public class Hopps extends Sprite{
         public void update() {
             super.update();
             if (getLoc().x > Main.FRAMEWIDTH)
-                setLoc(new Point(0, getLoc().y));
+                setLoc(new Point((int) Math.random(), getLoc().y));
             if(getLoc().x < 0)
-                setLoc(new Point(1000, getLoc().y));
+                setLoc(new Point((int) Math.random(), getLoc().y));
         }
     }
 
