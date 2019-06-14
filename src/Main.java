@@ -14,7 +14,6 @@ public class Main extends JPanel {
     Timer timer;
     private ArrayList<Sprite> hoppsImages;
     private boolean Dead;
-    private int erin = -1;
 
     public Main() {
          Dead = false;
@@ -29,20 +28,12 @@ public class Main extends JPanel {
                 }
 
             }
+
             if(snake.getLoc().y> 600 || snake.getLoc().y<0)
                  Dead = true;
 
             if(snake.getLoc().x> 600 || snake.getLoc().x<0)
                 Dead= true;
-
-
-
-
-
-
-
-
-
 
 
 
@@ -112,6 +103,7 @@ public class Main extends JPanel {
             if(snake.intersects(hoppsImages.get(i))){
                 hoppsImages.remove(i);
                 hoppsImages.add(new Hopps((int)(Math.random()*600), (int)(Math.random()*600), Sprite.WEST, 1));
+
             }
 
         }

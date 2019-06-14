@@ -38,10 +38,8 @@ public class Snake extends Sprite{
 
         if(loc.x < 0 || loc.x > 600){
 
-//            setLoc(300, 300);
         }
 
-        
 
     }
 
